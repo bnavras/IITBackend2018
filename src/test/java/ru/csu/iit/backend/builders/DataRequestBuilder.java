@@ -20,11 +20,11 @@ public class DatasetRequestBuilder {
     }
 
     public DatasetRequestBuilder contains(String attributeName, String attributeValueSubstring) {
-        return filter(String.format("substringof('%s', %s) eq true", attributeValueSubstring, attributeName));
+        return filter(String.format("Cells/%s eq %s", attributeName, attributeValueSubstring));
     }
 
-    public DatasetRequestBuilder getFields(String... fields) {
-        requestSpecification.body(fields);
+    public DatasetRequestBuilder orderby(String attributeName){
+        requestSpecification.queryParams("$orderby", attributeName);
         return this;
     }
 

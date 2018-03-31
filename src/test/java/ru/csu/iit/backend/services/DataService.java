@@ -17,12 +17,12 @@ public class DatasetsService extends BaseService {
     }
 
     public DatasetModel[] execute(RequestSpecification requestSpecification) {
-        return requestSpecification.post("datasets").then()
+        return requestSpecification.post("datasets/1661/rows").then()
                 .extract()
                 .body().as(DatasetModel[].class);
     }
 
     public Response executeRow(RequestSpecification requestSpecification) {
-        return requestSpecification.post("datasets");
+        return requestSpecification.post("datasets/1661/rows");
     }
 }
